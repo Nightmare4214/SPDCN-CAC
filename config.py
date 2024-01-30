@@ -19,11 +19,11 @@ _C.BASE = ['']
 # -----------------------------------------------------------------------------
 _C.DATA = CN()
 # Batch size for a single GPU, could be overwritten by command line argument
-_C.DATA.BATCH_SIZE = 128
+_C.DATA.BATCH_SIZE = 16
 # Path to dataset, could be overwritten by command line argument
 _C.DATA.DATA_PATH = ''
 # Number of data loading threads
-_C.DATA.NUM_WORKERS = 8
+_C.DATA.NUM_WORKERS = 4
 
 # -----------------------------------------------------------------------------
 # Model settings

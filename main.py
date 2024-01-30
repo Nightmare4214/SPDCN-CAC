@@ -31,15 +31,15 @@ def get_args_parser():
     )
 
     # easy config modification
-    parser.add_argument('--batch-size', type=int, help="batch size for single GPU")
-    parser.add_argument('--data-path', type=str, help='path to dataset')
+    parser.add_argument('--batch-size', type=int, help="batch size for single GPU", default=4)
+    parser.add_argument('--data-path', type=str, help='path to dataset', default='/home/icml007/Nightmare4214/datasets/FSC147_384_V2')
     parser.add_argument('--resume', help='resume from checkpoint')
     parser.add_argument('--use-checkpoint', action='store_true',
                         help="whether to use gradient checkpointing to save memory")
-    parser.add_argument('--accumulation-steps', type=int, help="gradient accumulation steps")
+    parser.add_argument('--accumulation-steps', type=int, help="gradient accumulation steps", default=7)
     parser.add_argument('--output', default='output', type=str, metavar='PATH',
                         help='root of output folder, the full path is <output>/<model_name>/<tag> (default: output)')
-    parser.add_argument('--tag', help='tag of experiment')
+    parser.add_argument('--tag', help='tag of experiment', default=datetime.datetime.strftime(datetime.datetime.now(), '%y%m%d-%H%M%S'))
     parser.add_argument('--eval', action='store_true', help='Perform evaluation only')
     parser.add_argument('--device', default='cuda:0', help='device name')
 

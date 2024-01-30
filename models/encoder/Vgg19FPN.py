@@ -1,8 +1,9 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torchvision.models import VGG19_Weights
 from torchvision import models
-from mmcv.ops import DeformConv2d as dfconv
+from torchvision.ops import DeformConv2d as dfconv
 
 
 def nc2dc(nconv):
@@ -56,7 +57,8 @@ class NormBlock(nn.Module):
 class Vgg19FPN(nn.Module):
     def __init__(self, pretrained=True):
         super(Vgg19FPN, self).__init__()
-        vgg = models.vgg19(pretrained=pretrained)
+        vgg = models.vgg19(weights=VGG19_Weights.DEFAULT)
+        # vgg = models.vgg19(pretrained=pretrained)
         mods = list(vgg.features.children())[:28]
 
         self.modlist = nn.ModuleList()

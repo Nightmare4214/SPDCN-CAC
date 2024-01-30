@@ -50,6 +50,7 @@ def save_checkpoint(config, epoch, model, max_accuracy, optimizer, lr_scheduler,
                   'max_accuracy': max_accuracy,
                   'epoch': epoch,
                   'config': config}
+    os.makedirs(config.OUTPUT, exist_ok=True)
     save_path = os.path.join(config.OUTPUT, f'ckpt_epoch_{epoch}.pth')
     logger.info(f"{save_path} saving......")
     torch.save(save_state, save_path)
@@ -96,6 +97,7 @@ def plot_curve(label, data, savepath):
     plt.xlabel('Epochs')
     plt.ylabel(label)
     plt.grid(True)
+    os.makedirs(os.path.dirname(savepath), exist_ok=True)
     plt.savefig(savepath)
     plt.close(fig)
 

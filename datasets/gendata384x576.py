@@ -9,7 +9,7 @@ import tqdm
 
 # set the root as the directory of datasets:
 
-root = '/home/elin24/Hercules/coey/gsc147'
+root = '/home/icml007/Nightmare4214/datasets/FSC147_384_V2'
 '''
 root should contain the following files:
     root/
